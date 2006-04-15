@@ -19,14 +19,19 @@
 #    Contributor(s):
 #      Sergey Shishmintzev <sergey.shishmintzev@gmail.com>
 
-colorPlugin.dll: colorPlugin.c color.c colorPlugin.def
-	cl /LD /MD /GL /Ox colorPlugin.c colorPlugin.def /Fm kernel32.lib
+ROOT = ..\..
+!include $(ROOT)\config.mak
+DEX = ..
 
-color.c: color.dlg ../metadialog_c.txt
-	cd ..
-	$(MAKE) -nologo cdialog.exe
+colorPlugin.dll: colorPlugin.c color.c colorPlugin.def
+	cl /LD /MD /GL /Ox /I"$(PLUGINSDK_HEADERS)" colorPlugin.c colorPlugin.def \
+ /Fm kernel32.lib
+
+color.c: color.dlg $(DEX)/metadialog_c.txt
+	cd $(DEX)
+	$(MAKE) -nologo aided
 	cd "$(MAKEDIR)"
-	..\metadialog.exe ..\metadialog_c.txt color.dlg > $@
+	$(DEX)\metadialog.exe $(DEX)\metadialog_c.txt color.dlg > $@
 
 clean:
 	-del color.c
