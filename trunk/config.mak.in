@@ -1,0 +1,40 @@
+#
+#    Global makefile config.
+#    Copyright (c) Sergey Shishmintzev, Kiev 2006
+#
+#    This library is free software; you can redistribute it and/or
+#    modify it under the terms of the GNU Lesser General Public
+#    License as published by the Free Software Foundation; either
+#    version 2.1 of the License, or (at your option) any later version.
+#
+#    This library is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#    Lesser General Public License for more details.
+#
+#    You should have received a copy of the GNU Lesser General Public
+#    License along with this library; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+#    Contributor(s):
+#      Sergey Shishmintzev <sergey.shishmintzev@gmail.com>
+
+# Для работы всех *makefile* в этом дереве папок нужно
+# скопировать этот файл в config.mak и установить правильные пути.
+# Для корректной работы make.exe из поставки cygwin,
+# все разделители папок должны быть /
+
+### Абсолютный путь к этой папке:
+ABSROOT = C:/Program Files/Far/Plugins/far-unlimited
+
+### Microsoft-совместимый интерпретатор команд:
+CMD = cmd.exe /c
+
+### Абсолютный путь к папке с заголовочными файлами FAR Plugin SDK:
+PLUGINSDK = C:/Program Files/Far/PluginSDK
+PLUGINSDK_HEADERS = $(PLUGINSDK)/Headers.c
+PLUGINSDK_COMMON = $(PLUGINSDK)/Examples/Common
+
+### Абсолютный путь к консольному архиватору 7z:
+SEVEN_ZIP = "c:/program files/7-zip/7z.exe"
+
